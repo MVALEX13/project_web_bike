@@ -1,0 +1,384 @@
+
+/***** applied to each pages 📄📄📄 *****/
+
+html, body
+{
+	/*background: url("pictures/background1.webp") fixed no-repeat;*/
+	/*background: url("pictures/background3.png") scroll ;
+	background-size: 250%;*/
+	background-image: linear-gradient(to bottom, #452c63, #E6E6FA);
+	background-repeat: no-repeat;
+	/*background-position : 0px 0px;*/
+	background-position: top left;
+
+	/*when shrinking an elements, min_width correspond to the width untill which
+	the elements shrink as well, beyond this boundaries the elements 'refuse' to shrink and 
+	is cut*/
+	min-width: 1000px;
+}
+
+nav
+{
+	/*diplay: flex obligatoire pour réorganiser des blocs*/
+	display: flex;
+
+	/*on organise les blocs au centre*/
+	justify-content: space-around;
+
+	align-items: center;
+
+}
+
+nav a
+{
+	text-decoration: none;
+	text-align: center;
+	padding: 10px;
+	width: 15%;
+}
+
+.barre_menu
+{
+	/*font-size: x-large;*/
+	font-size: 20px;
+}
+
+/*events when mouse on it*/
+.barre_menu:hover
+{
+	box-shadow: 1px 1px 20px black;
+	border-radius: 5px 5px 5px 5px;
+}
+
+/*cuando la pagina ya ha sida vista => este cambio occure*/
+.barre_menu:visited
+{
+	color:  rgb(20, 20, 20);
+}
+
+/*déclaration d'une police personnalisée décrite dans des fichiers locaux*/
+@font-face{
+	font-family:  'rubik';
+	src:  url(fonts/rubik/Rubik-Regular.ttf);
+}
+
+h1
+{
+	text-align: center ;
+	font-size: xx-large;             /*font-size: 2em;*/
+	font-weight : bold;             /*gras*/
+	background-color: #E6E6FA
+}
+
+h2
+{
+	font-size: large;               /*font-size: 1.3em;*/
+	font-weight : bold;
+	text-decoration: underline;    /*souligner h2*/
+}
+
+/*paragraphes et listes*/
+p, ul
+{
+	color : black;
+	font-size: medium;
+	/*min-width: 1000000px;*/ /*sensé donner une largeur mini au dela de laquelle on ne peut reduire plus la fenetre*/
+	/*border : 1px solid black;*/
+
+	/*marge qui separe les balises des bordures top-right-bottom-left*/
+	margin: 10px 0px 10px 10px;
+
+	/*marge qui sépare le contenu des bords de sa balise*/
+	padding: 10px;
+}
+
+
+.float_pic
+{
+	float : right;
+}
+
+
+.contact_us_elmt
+{
+	color :green;
+	/*marge qui separe les balises des bordures top-right-bottom-left*/
+	margin: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+
+	/*marge qui sépare le contenu des bords de sa balise*/
+	padding: 0px;
+
+	/*retirer underline*/
+	text-decoration: none;
+}
+
+.contact_us_elmt:nth-child(1)
+{
+	color :green;
+	font-size: large;
+}
+
+.contact_us_elmt:nth-child(2)
+{
+	color : red;
+	font-size: large;
+}
+
+.contact_us
+{
+	/*blocs présentés en ligne*/
+	display: flex;
+	flex-direction:row ;
+}
+
+footer
+{
+	background-color: #b0b7e0;
+	margin : 0px;
+}
+
+
+/*selecteur universel, selectionne toutes les balises sans exception*/
+*
+{
+	font-family: "rubik","system-ui","Verdana";
+	color : black;
+	border: 1px black solid; /*debug useful for block organization visualization*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***** 📄 main_page.html *****/
+
+/*elements de class "Horaires*/
+.Horaires
+{
+	font-style: italic;
+}
+
+#bikers_photo
+{
+	/**/ ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***** 📄 page1.html VENTES *****/
+.bike_in_sell
+{
+	/*bordure pour séparer les articles en vente*/
+	border-bottom: 1px black groove;
+	width: 50%;
+
+	/*on centre le bloc sur la page*/
+	margin : auto;
+}
+
+/*events occuring when mouse is on the element*/
+.bike_in_sell:hover
+{
+	/*bordure + mise en relief avec ombre*/
+	box-shadow: 1px 1px 20px black;
+	border-radius: 10px 50px;
+}
+
+#bikes_list
+{
+	text-align: center;
+	list-style-type: none;
+
+	/*affichage en colomne (par défaut)*/
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***** 📄 page2.html PARCOURS VELO *****/
+
+#container_parcours_velo
+{
+	/*enable blocks reorganization*/
+	display: flex;
+
+	/*default orientation, but to be sure*/
+	flex-direction: column;
+
+	min-width: 1500px;
+}
+
+
+/*les images situées dans la balise #Alpes_road*/
+#container_parcours_velo img
+{
+	/*redimensionne la hauteur*/
+	height: 300px;
+	/*redimensionne la largeur en préservant la largeur*/
+	width: auto;
+}
+
+
+#container_parcours_velo .sub_container
+{
+	/*enable blocks reorganization*/
+	display: flex;
+
+	/*blocks orientation*/
+	flex-direction: row;
+
+	/*We place elements in left side*/
+	justify-content: flex-start;
+
+	/*on aère*/
+	padding: 50px;
+
+	/*We bring the elements closer to the middle*/
+	padding-left: 200px;
+
+	/*elements whithin the sub_container are strored in row*/
+	/*The secondary axe is then column*/
+	/*elements within sub_container are centered in column axis*/
+	align-items: center;
+}
+
+/*le 2eme element enfant "sub_container" de la liste "container_parcours_velo"*/
+#container_parcours_velo .sub_container:nth-child(2)
+{
+	/*inverse elements order*/
+	/*inverse aussi le flex-start*/
+	flex-direction: row-reverse;
+
+	/*We bring the elements closer to the middle*/
+	padding-right: 200px;
+}
+
+
+/*elements of sub_container which means img and article of sub_container*/
+#container_parcours_velo .sub_container img,article
+{
+	margin : 30px;
+}
+
+#container_parcours_velo .sub_container article
+{
+	/*width of the article block*/
+	width: 300px;
+
+	/*height of the article block*/
+	height: 350px;
+
+	/*aerate the texte*/
+	padding: 5px;
+
+	/*determine the reaction of the navigator when the text is too big for the article block*/
+	/*often equivalent to scroll option*/
+	overflow: auto;
+
+	/*put borders to the article blocks*/
+	border: 1px black solid;
+
+	/*curve the borders edges*/
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***** 📕 DOCUMENTATION 
+
+Affecte/concerne tous les éléments d'une même classe
+.class
+{
+
+}
+
+Affecte/concerne seulement l'élément dont l'id est spécifié, l'id est individuel
+#id
+{
+	
+}
+
+met en valeur une case d'un formulaire
+.classe: focus;
+{
+	
+}
+
+*****/
+
