@@ -14,7 +14,10 @@ html, body
 	/*when shrinking an elements, min_width correspond to the width untill which
 	the elements shrink as well, beyond this boundaries the elements 'refuse' to shrink and 
 	is cut*/
-	min-width: 1000px;
+	min-width: 800px;
+
+	/*browser calculate the margin*/
+	margin: auto;
 }
 
 nav
@@ -26,12 +29,13 @@ nav
 	justify-content: space-around;
 
 	align-items: center;
-
 }
 
 nav a
 {
+	/*we remove the natural underline of the links*/
 	text-decoration: none;
+
 	text-align: center;
 	padding: 10px;
 	width: 15%;
@@ -60,6 +64,12 @@ nav a
 @font-face{
 	font-family:  'rubik';
 	src:  url(fonts/rubik/Rubik-Regular.ttf);
+}
+
+h1, h2
+{
+	/*title in Majuscule*/
+	text-transform: uppercase;
 }
 
 h1
@@ -98,6 +108,21 @@ p, ul
 	float : right;
 }
 
+/*l'image qui possède la source spécifiée*/
+img[alt = "up_arrow"]
+{
+	height: 50px;
+
+	width: auto;
+
+	position : fixed;
+
+	bottom: 10px;
+	left: 10px;
+
+	padding: 5px;
+}
+
 
 .contact_us_elmt
 {
@@ -108,7 +133,7 @@ p, ul
 	margin-left: 10px;
 
 	/*marge qui sépare le contenu des bords de sa balise*/
-	padding: 0px;
+	padding: 5px;
 
 	/*retirer underline*/
 	text-decoration: none;
@@ -116,13 +141,13 @@ p, ul
 
 .contact_us_elmt:nth-child(1)
 {
-	color :green;
+	color :grey;
 	font-size: large;
 }
 
 .contact_us_elmt:nth-child(2)
 {
-	color : red;
+	color : grey;
 	font-size: large;
 }
 
@@ -130,7 +155,7 @@ p, ul
 {
 	/*blocs présentés en ligne*/
 	display: flex;
-	flex-direction:row ;
+	flex-direction:column ;
 }
 
 footer
@@ -141,12 +166,14 @@ footer
 
 
 /*selecteur universel, selectionne toutes les balises sans exception*/
-*
+/*block used only for debugging*/
+/**
 {
 	font-family: "rubik","system-ui","Verdana";
 	color : black;
-	border: 1px black solid; /*debug useful for block organization visualization*/
-}
+	border: 1px black solid; 
+}*/
+
 
 
 
@@ -170,9 +197,86 @@ footer
 	font-style: italic;
 }
 
-#bikers_photo
+
+#banner
 {
-	/**/ ;
+	margin-left: 0px;
+	margin-right: 0px;
+
+	/*the height of the chosen image*/
+	height: 600px;
+	border-radius: 5px;
+	background: url("pictures/photo1.jpg") no-repeat;
+
+	/*center the image*/
+	background-position: center;
+
+	/*stretch picture to make fit with the screen*/
+	background-size: cover;
+
+	/*by default static mode (in the flux)*/
+	/*selecting fixed/relative/absolute allows us to write on the block*/
+	/*lorsque on les positionne, les blocs enfants se placent par rapport au premier bloc
+	parent positioné.
+	D'ou la nécéssité de déclaré la bannière comme positionée en utilisant relative.*/
+	/*Enable positioning for child blocs*/
+	position: relative;
+}
+
+#banner #banner_description
+{
+	/*Enable reorganization*/
+	display: flex;
+
+	/*decription block height*/
+	height: 30px;
+
+	color: white;
+
+	/*positionned according to its container*/
+	/*posible because the parent bloc is positionned as well (relative)*/
+	position: absolute;
+
+	/*we chose the distance between the current block and the bottom of the container*/
+	bottom: 10px;
+
+	background-color: rgba(250, 250, 250, 0.5);
+
+	/*secondary axe is the vertical one, we center the contenant according to the y axe*/
+	align-items: center;
+
+    /*adding padding we broaden the block*/
+    /*The block as it is defined has no defined width and height*/
+    /*it is why we had to reduce the width predentage afterwards*/
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+
+	/*The elements occupy 99.2% of the parent's width (whithout the padding)*/
+	/*With the padding it occups more*/
+	width: 99.2%;
+}
+
+#banner #banner_description a
+{
+	/*positionning the button in the banner_description (parent container)*/
+	position: absolute;
+	right: 5px;
+
+	/*intern margin*/
+	padding: 5px;
+
+	/*remove natural underline of links*/
+	text-decoration: none;
+	border-radius: 5px;
+
+	background-color: orange;
+}
+
+#banner #banner_description a:hover
+{
+	box-shadow: 1px 1px 2px black;
 }
 
 
@@ -196,10 +300,21 @@ footer
 {
 	/*bordure pour séparer les articles en vente*/
 	border-bottom: 1px black groove;
+
+	/*width of the block container for each bike*/
 	width: 50%;
 
 	/*on centre le bloc sur la page*/
 	margin : auto;
+}
+
+.bike_in_sell img
+{
+	/*we fix the height of the img*/
+	height: 300px;
+
+	/*apply the width that allows to keep the same ratio of the img*/
+	width: auto;
 }
 
 /*events occuring when mouse is on the element*/
@@ -253,7 +368,7 @@ footer
 	/*default orientation, but to be sure*/
 	flex-direction: column;
 
-	min-width: 1500px;
+	min-width: 800px;
 }
 
 
@@ -262,6 +377,7 @@ footer
 {
 	/*redimensionne la hauteur*/
 	height: 300px;
+
 	/*redimensionne la largeur en préservant la largeur*/
 	width: auto;
 }
@@ -379,6 +495,12 @@ met en valeur une case d'un formulaire
 {
 	
 }
+
+Par défaut tous les éléments/blocs dont en position 'static' c-à-dire dans le flux.
+Des qu'on va changer la valeur de 'position' par absolute,relative... ils passeront en mode
+"positionnés".
+Ont ensuite accès à différentes properties : top,left,bottom
+z-index : poids de la couche par rapport aux autres.
 
 *****/
 
