@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href = "../style.css" />
+        <link rel="icon" href="pictures/icons/Rafale.ico">
+        <title>Bike Society</title>
+    </head>
+
+
+
+    <body>
+        <!-- barre menu en haut--> 
+        <nav id = "nav_form">
+            <a href="../main_page.html">
+                <img src="../pictures/icons/back.png" alt="back_icon">
+            </a> 
+        </nav>
+
+        <header>
+            <h1 id = "title_main_page">Form </h1>
+        </header>
+
+        <!-- formulaire -->
+        <!-- attribut action : l'adresse de la page qui va recuperer les données (PHP) -->
+        <!-- creation of a virtual php file -->
+        <form method = "post" action = "traitement.php">
+
+            <fieldset>
+
+                <legend> Informations</legend>
+                
+                <p>
+                    <!-- for pour connecter à l'input qui porte l'id correspondant -->
+                    <label for="nom_form">nom : </label>
+                    <!-- id : pour faire lien avec libellé -->
+                    <!-- name : pour le traitement php -->
+                    <!-- ainsi le curseur se positionne automatiquement dans la case lorsque user touche le label -->
+                    <!-- maxlength : nb de caracteres max -->
+                    <!-- value : initialisation de la barre -->
+                    <!-- placeholder : comme value, mais a pour vocation de donné un exemple et pas de remplir avce une valeur par defaut -->
+                    <!-- autofocus : pour que curseur se positionne directement dans le champ -->
+                    <!-- required : le champ doit obligatoirement être complété -->
+                    <input type="text" name="name_form" id = "nom_form" maxlength="15" autofocus required />
+                </p>
+
+                <p>
+                    <label for="email_form">email : </label>
+                    <input type="email" name="email_form" id = "email_form">
+                </p>
+                    
+                <p>
+                    <!-- password -->
+                    <label for="code_form"> mot de passe : </label>
+                    <input type="password" name="code_form" id="code_form" />
+                </p>
+                
+                <p>
+                    <label for="date_form"> date:</label>
+                    <input type="date" name="date_form" id="date_form" />
+                </p>
+
+                <p>
+                    <label for="check1_form"> choix 1: </label>
+                    <input type="checkbox" name="check1_form" id="check1_form" />
+                </p>
+
+                <p>
+                    <label for="check2_form"> choix 2: </label>
+                    <input type="checkbox" name="check2_form" id="check2_form" checked />
+                </p>
+
+                <p>
+                    <label for="velo_form">type de vélo : </label>
+                    <select name="velo_form" id="velo_form">
+                        <option value="VTT">VTT</option>
+                        <option value="velo_route">Vélo route</option>
+                        <option value="Fixie">Fixie</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="comment_form"> Commentaire / Avis : </label>
+                    <textarea rows="5" cols="30" name="comment_form" id = "comment_form" placeholder="Laisser un message/commentaire"></textarea>
+                </p>
+
+                <input type="submit" value = "envoyer">
+
+            </fieldset>
+            
+        </form>
+
+        <section></section>
+
+        <footer>
+            <h2>Contact us</h2>
+            <div class = "contact_us" >
+                <a href="mailto:raphael.valle@cegetel.net" class = "contact_us_elmt">rafale.bike@gmail.com</a>
+                <p class = "contact_us_elmt">04 XX XX XX XX</p>
+            </div>
+        </footer>
+    </body>
+
+
+
+</html>

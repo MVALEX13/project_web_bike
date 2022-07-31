@@ -28,7 +28,7 @@ nav
 	/*on organise les blocs au centre*/
 	justify-content: space-around;
 
-	align-items: center;
+	/*align-items: center;*/
 }
 
 nav a
@@ -189,6 +189,38 @@ footer
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /***** 📄 main_page.html *****/
 
 /*elements de class "Horaires*/
@@ -196,6 +228,95 @@ footer
 {
 	font-style: italic;
 }
+
+
+aside img,aside p
+{
+	margin: 0px;
+	padding: 0;
+}
+
+aside
+{
+	/*color*/
+	background-color: #ddd;
+
+	/*hauteur du bloc*/
+	height: 3em;
+	width: 30em;
+
+	/*exterior margin*/
+	margin: 1em;
+
+	/*curve edges*/
+	border: 1px solid black;
+	border-radius: 0.5em;
+
+	/*we will organize the 2 sub_blocks in the aside block*/
+	/*ENABLE sub_blocks reorganization*/
+	display: flex;
+	/*organize blocks in row*/
+	flex-direction: row;
+	/*center sub_blocks horizontally*/
+	justify-content: center;
+	/*center the sub_blocks vertically*/
+	align-items: center;
+
+	/*in order to ajust precisely the position of the block we position them*/
+	/*we want to shift a bit the calender img to leave a lil space between the 2 blocks*/
+	/*we do it manually with the positionning*/
+	/*declare the bloc as positionned*/
+	/*ENABLE repositionning of child blocks*/
+	position : relative;
+}
+
+aside:hover
+{
+	box-shadow: 1px 1px 20px black;
+}
+
+aside img
+{
+	/*redimensionnement de l'image*/
+	height: 2em;
+	width: auto;
+
+	/*le block img a déjà été positionné avec la fonction flex*/
+	/*maintenant on cherche à ajuster légèrement avec précision
+	la disposition du block image pour laisser un peur d'écart entre les
+	2 blocks*/
+	/*pour cela on positionne le block img depuis sa position relative*/
+	/*sa position relative a été établie par la flex-box*/
+	position: relative;
+	/*on decole le block image du block p*/
+	right : 1em;
+}
+
+
+aside a
+{
+	/*positionnement du paragraphe dans le bloc parent (aside)*/
+/*	position: absolute;
+	top: 40%;
+	left: 15%;
+*/
+	/*text aligned horizontally in its current bloc (p)*/
+	text-align: center;
+
+	/*we remove the natural underline of the links*/
+	text-decoration: none;
+
+	color: black;
+}
+
+/*astude pour centrer du texte vertically*/
+/*aside p
+{
+	align-items: center;
+
+  	height: 100px;
+  	line-height: 100px;
+}*/
 
 
 #banner
@@ -295,6 +416,149 @@ footer
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***** 📄 form.html FORM *****/
+
+#nav_form
+{
+	justify-content: left;
+}
+
+#nav_form img
+{
+	height: 2em;
+	width: auto;
+	padding: 0.2em;
+}
+
+#nav_form img:hover
+{
+	/*border: 1px solid black;*/
+	border-radius: 0.3em;
+	box-shadow: 1px 1px 20px black;
+}
+
+
+form
+{
+	/*ENABLE flex reorganization*/
+	display: flex;
+	/*elements presented in column*/
+	flex-direction: column;
+
+	width: auto;
+}
+
+form label
+{
+	/*leave space between the champ and the indicator*/
+	padding-right: 1em;
+}
+
+form p
+{
+	/*ENABLE flex reorganization*/
+	display: flex;
+	/*elements presented in row*/
+	flex-direction: row;
+}
+
+/*exception for the comment section, we want column presentation*/
+form p:nth-child(9)
+{
+	flex-direction: column;
+}
+
+
+form input[type="submit"]
+{
+	font-size: 1.3em;
+
+	/*on décale le bouton de la position que lui affecte automatiquement flex box*/
+	position: relative;
+	left: 50%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /***** 📄 page1.html VENTES *****/
 .bike_in_sell
 {
@@ -310,11 +574,12 @@ footer
 
 .bike_in_sell img
 {
-	/*we fix the height of the img*/
-	height: 300px;
-
-	/*apply the width that allows to keep the same ratio of the img*/
-	width: auto;
+	/*we fix the width of the img*/
+	/*clamp(min, valeur à tester, max) => adapte la taille de l'image à la taille de la fenêtre*/
+	width: clamp(100px, 75%, 600px);
+	
+	/*apply the heightthat allows to keep the same ratio of the img*/
+	height: auto;
 }
 
 /*events occuring when mouse is on the element*/
@@ -358,6 +623,34 @@ footer
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /***** 📄 page2.html PARCOURS VELO *****/
 
 #container_parcours_velo
@@ -375,11 +668,13 @@ footer
 /*les images situées dans la balise #Alpes_road*/
 #container_parcours_velo img
 {
-	/*redimensionne la hauteur*/
-	height: 300px;
 
-	/*redimensionne la largeur en préservant la largeur*/
-	width: auto;
+	/*we fix the width of the img*/
+	/*clamp(min, valeur à tester, max) => adapte la taille de l'image à la taille de la fenêtre*/
+	width: clamp(300px, 40%, 1000px);
+	
+	/*apply the heightthat allows to keep the same ratio of the img*/
+	height: auto;
 }
 
 
@@ -399,6 +694,7 @@ footer
 
 	/*We bring the elements closer to the middle*/
 	padding-left: 200px;
+
 
 	/*elements whithin the sub_container are strored in row*/
 	/*The secondary axe is then column*/
@@ -427,7 +723,7 @@ footer
 #container_parcours_velo .sub_container article
 {
 	/*width of the article block*/
-	width: 300px;
+	width: 400px;
 
 	/*height of the article block*/
 	height: 350px;
@@ -445,6 +741,102 @@ footer
 	/*curve the borders edges*/
 	border-radius: 5px;
 }
+
+/*the tab title box*/
+caption
+{
+	padding: 1em;
+	font-weight: bold ;
+}
+
+
+/*** VIDEO ***/
+#video_container
+{
+	/*ENABLE reorganization of block*/
+	display: flex;
+	/*organized in column*/
+	flex-direction: column;
+	/*centrage video ⚠️ ici l'axe principal est y et l'axe secondaire x puisque on est en disposition colomne*/
+	/*on veut aligner selon x donc selon l'axe secondaire, on utilise alors align-items et non pas justify-contents */
+	align-items: center;
+
+
+}
+
+#video_container video
+{
+	padding: 1em;
+}
+
+
+
+/*cell of each tab line*/
+td, th
+{
+	text-align: center;
+
+	padding: 1em;
+
+	background: #ddd;
+}
+
+/*each line of the tab*/
+tr
+{
+	
+	/*visible delimitation for the tab cells*/
+	border-bottom : 2px dotted grey;
+}
+
+/*remove the border delimitation below the last line*/
+tbody tr:last-child
+{
+	border-bottom: none;
+}
+
+
+/*curve the edge of the table by selecting the extremity cells*/
+
+/*first line, first column of the tab comme table[0][0]*/
+/*en considérent que table[0][0] is a table[0] child, a tab child itself*/
+table tr:first-child th:first-child
+{
+	border-top-left-radius: 1em;
+}
+
+table tr:first-child th:last-child
+{
+	border-top-right-radius: 1em;
+}
+table tr:last-child td:first-child
+{
+	border-bottom-left-radius:1em ;
+}
+
+table tr:last-child td:last-child
+{
+	border-bottom-right-radius: 1em;
+}
+
+
+
+
+table
+{
+	/*organizing the individual border of each cell to give the look of a tab*/
+	border-collapse: collapse;
+
+	border-radius: 2em;
+
+	/*⚠️ used to center the content*/
+	margin : auto;
+
+	/*tab disposition*/
+	table-layout: auto;
+	width: 30%;
+}
+
 
 
 
@@ -501,6 +893,12 @@ Des qu'on va changer la valeur de 'position' par absolute,relative... ils passer
 "positionnés".
 Ont ensuite accès à différentes properties : top,left,bottom
 z-index : poids de la couche par rapport aux autres.
+
+
+flex box : pour organiser/disposer des blocks rapidement de manière propre
+et ordonnée.
+
+positionning : ajustement de précision, plus laborieux.
 
 *****/
 
