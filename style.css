@@ -14,7 +14,7 @@ html, body
 	/*when shrinking an elements, min_width correspond to the width untill which
 	the elements shrink as well, beyond this boundaries the elements 'refuse' to shrink and 
 	is cut*/
-	min-width: 800px;
+	/*min-width: 800px;*/
 
 	/*browser calculate the margin*/
 	margin: auto;
@@ -40,6 +40,30 @@ nav a
 	padding: 10px;
 	width: 15%;
 }
+
+/*requete media*/
+/*media queries : propriétés appliquées lorsque l'écran devient inférieur à une vertaine taille*/
+/*si il s'agit d'un écran & qu'il dispose de moins de 1024px*/
+@media all and (max-width: 1024px)
+{
+	nav
+	{
+		display: flex;
+
+		flex-direction: column;
+
+		align-items: flex-start;
+	}
+
+	nav a
+	{
+		width:  clamp(100px, 25%, 400px);
+	}
+}
+
+
+
+
 
 .barre_menu
 {
@@ -102,11 +126,6 @@ p, ul
 	padding: 10px;
 }
 
-
-.float_pic
-{
-	float : right;
-}
 
 /*l'image qui possède la source spécifiée*/
 img[alt = "up_arrow"]
@@ -172,8 +191,8 @@ footer
 	font-family: "rubik","system-ui","Verdana";
 	color : black;
 	border: 1px black solid; 
-}*/
-
+}
+*/
 
 
 
@@ -227,6 +246,20 @@ footer
 .Horaires
 {
 	font-style: italic;
+}
+
+.float_pic
+{
+	float : right;
+}
+
+/*retire tous le bloc aisni que tout son héritage pour des écrans de taille inférieure à la taille spécifiée*/
+@media all and (max-width: 1024px)
+{
+	.float_pic
+	{
+		display: none;
+	}
 }
 
 
@@ -344,6 +377,15 @@ aside a
 	position: relative;
 }
 
+/*retire tous le bloc aisni que tout son héritage pour des écrans de taille inférieure à la taille spécifiée*/
+@media all and (max-width: 1024px)
+{
+	#banner
+	{
+		display: none;
+	}
+}
+
 #banner #banner_description
 {
 	/*Enable reorganization*/
@@ -399,6 +441,8 @@ aside a
 {
 	box-shadow: 1px 1px 2px black;
 }
+
+
 
 
 
@@ -661,7 +705,7 @@ form input[type="submit"]
 	/*default orientation, but to be sure*/
 	flex-direction: column;
 
-	min-width: 800px;
+	/*min-width: 800px;*/
 }
 
 
@@ -687,13 +731,14 @@ form input[type="submit"]
 	flex-direction: row;
 
 	/*We place elements in left side*/
-	justify-content: flex-start;
+	justify-content: center;
 
 	/*on aère*/
 	padding: 50px;
 
 	/*We bring the elements closer to the middle*/
-	padding-left: 200px;
+	/*🚧 bricolage pas terrible - à modifier avec position : relative + right🚧*/
+	/*padding-left: 200px;*/
 
 
 	/*elements whithin the sub_container are strored in row*/
@@ -702,16 +747,31 @@ form input[type="submit"]
 	align-items: center;
 }
 
+
 /*le 2eme element enfant "sub_container" de la liste "container_parcours_velo"*/
 #container_parcours_velo .sub_container:nth-child(2)
 {
 	/*inverse elements order*/
 	/*inverse aussi le flex-start*/
 	flex-direction: row-reverse;
-
-	/*We bring the elements closer to the middle*/
-	padding-right: 200px;
 }
+
+/*** SMALL SCREEN DEVICES 💻 ***/
+
+@media all and (max-width: 1048px)
+{
+		#container_parcours_velo .sub_container
+	{
+		flex-direction: column;
+		padding: 10px;
+	}
+
+	#container_parcours_velo .sub_container:nth-child(2)
+	{
+		flex-direction: column;
+		padding: 10px;
+	}
+} 
 
 
 /*elements of sub_container which means img and article of sub_container*/
@@ -723,7 +783,7 @@ form input[type="submit"]
 #container_parcours_velo .sub_container article
 {
 	/*width of the article block*/
-	width: 400px;
+	width: clamp(300px, 40%, 1000px);
 
 	/*height of the article block*/
 	height: 350px;
@@ -767,6 +827,7 @@ caption
 #video_container video
 {
 	padding: 1em;
+	width: clamp(300px, 50%, 1000px);
 }
 
 
@@ -827,14 +888,15 @@ table
 	/*organizing the individual border of each cell to give the look of a tab*/
 	border-collapse: collapse;
 
-	border-radius: 2em;
 
 	/*⚠️ used to center the content*/
 	margin : auto;
+	margin-top: 1em;
 
 	/*tab disposition*/
 	table-layout: auto;
 	width: 30%;
+
 }
 
 
@@ -870,35 +932,58 @@ table
 
 /***** 📕 DOCUMENTATION 
 
-Affecte/concerne tous les éléments d'une même classe
-.class
-{
+GENERALITES CSS
+	Affecte/concerne tous les éléments d'une même classe
+	.class
+	{
 
-}
+	}
 
-Affecte/concerne seulement l'élément dont l'id est spécifié, l'id est individuel
-#id
-{
-	
-}
+	Affecte/concerne seulement l'élément dont l'id est spécifié, l'id est individuel
+	#id
+	{
+		
+	}
 
-met en valeur une case d'un formulaire
-.classe: focus;
-{
-	
-}
-
-Par défaut tous les éléments/blocs dont en position 'static' c-à-dire dans le flux.
-Des qu'on va changer la valeur de 'position' par absolute,relative... ils passeront en mode
-"positionnés".
-Ont ensuite accès à différentes properties : top,left,bottom
-z-index : poids de la couche par rapport aux autres.
+	met en valeur une case d'un formulaire
+	.classe: focus;
+	{
+		
+	}
 
 
-flex box : pour organiser/disposer des blocks rapidement de manière propre
-et ordonnée.
 
-positionning : ajustement de précision, plus laborieux.
+POSITIONNEMENT DE BLOCS 🟧 🟩 🟥
+
+	Par défaut tous les éléments/blocs dont en position 'static' c-à-dire dans le flux.
+	Des qu'on va changer la valeur de 'position' par absolute,relative... ils passeront en mode
+	"positionnés".
+	Ont ensuite accès à différentes properties : top,left,bottom
+	z-index : poids de la couche par rapport aux autres.
+
+
+	flex box : pour organiser/disposer des blocks rapidement de manière propre
+	et ordonnée.
+
+	positionning : ajustement de précision, plus laborieux.
+
+
+
+MEDIA QUERIES 💻 🖥 📱
+
+
+	@media all and (max-width: 1024px)
+	{
+
+	}
+
+	traduction : if we have to deal with a screen (media all) && if 
+	this screen has more than 1048px
+	le media all : englobe tout type d'écran
+	On pourrait adresser cette requete à un type d'écran spécifique en spécifiant :
+	tv, screen,...
+
+
 
 *****/
 
