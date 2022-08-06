@@ -513,7 +513,7 @@ aside a
 
 #nav_form
 {
-	justify-content: left;
+	justify-content: rleft;
 }
 
 #nav_form img
@@ -574,6 +574,84 @@ form input[type="submit"]
 	left: 50%;
 
 }
+
+
+#form_footer
+{
+
+	/* we will build a 2*2 grid*/
+	.contact_us
+	{
+		display: grid;
+
+		grid-template-columns: auto auto;
+
+		gap : 1em;
+	}
+
+	/*social network child block*/
+	.contact_us div:nth-child(3)
+	{
+		/*we use 2 rows for the socila network block*/
+		grid-row-start: 1;
+		grid-row-end: 3;
+
+		/* we want the social network block in the right side column*/
+		grid-column: 2;
+
+		img
+		{
+			width: 3em;
+			height: 3em;
+
+			/*animation settings*/
+
+			/*the animation start slow - accelerate and end up slowly*/
+			/*animation-timing-function: ease*/
+
+			/*define the state of the element before the animation occurs.
+			With forwards before the animation, the element occups the stationay
+			position defined by the end of the animation*/
+			/*animation-fill-mode: forwards*/
+
+			/*select the animation declared/defined/created in the @keyframes my_name*/
+			/*animation-name: my_name*/
+
+			/*The time laps token by the page to run the animation after that the user has opened the page*/
+			/*calc to adapt this time for each elements. Each img elemnts has it's own --order variable*/
+			/*animation-delay: calc(1s + var(--order) * 0.8s)*/
+			animation: dropIn calc(1s + var(--order) * 0.8s) ease forwards;
+
+			@keyframes dropIn {
+				from {transform: translateY(-500px);}
+				to { transform: translateY(0);}
+			}
+		}
+
+		/*define the div block containing the social network icons as a container*/
+		/*the div as an icon container*/
+		/*ENABLE flex*/
+		display: flex;
+
+		/*icons stored in row : x axis as the principal axis*/
+		flex-direction: row;
+
+		/*homogeneous repartition with respect to x*/
+		justify-content: space-around;
+
+		/*centered in y*/
+		align-items: center;
+
+		animation: drop 4s linear forwards;
+
+
+	}
+
+	
+
+}
+
+
 
 
 

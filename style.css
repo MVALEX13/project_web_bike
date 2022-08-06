@@ -1,188 +1,141 @@
+@charset "UTF-8";
+/*This file must be compiled with SASS to convert the scss code in css code*/
+/*The command line to use is the following :
+>> sass file.scss:file.css*/
+/*in order to don't have to recompile for each modification of the .scss file
+we can set up the terminal to run sass as a tache de fond with the followind command:
+>> sass --watch file.scss:file.css
+*/
+/*works like PRE-PROCESSING step of Compiler*/
+/*constants declaration*/
+/*set of instructions*/
+.barre_menu:hover, aside:hover, #nav_form img:hover, .bike_in_sell:hover {
+  box-shadow: 1px 1px 20px black; }
 
 /***** applied to each pages 📄📄📄 *****/
+html, body {
+  /*background: url("pictures/background1.webp") fixed no-repeat;*/
+  /*background: url("pictures/background3.png") scroll ;
+  background-size: 250%;*/
+  background-image: linear-gradient(to bottom, #452c63, #E6E6FA);
+  background-repeat: no-repeat;
+  /*background-position : 0px 0px;*/
+  background-position: top left;
+  /*when shrinking an elements, min_width correspond to the width untill which
+  the elements shrink as well, beyond this boundaries the elements 'refuse' to shrink and 
+  is cut*/
+  /*min-width: 800px;*/
+  /*browser calculate the margin*/
+  margin: auto; }
 
-html, body
-{
-	/*background: url("pictures/background1.webp") fixed no-repeat;*/
-	/*background: url("pictures/background3.png") scroll ;
-	background-size: 250%;*/
-	background-image: linear-gradient(to bottom, #452c63, #E6E6FA);
-	background-repeat: no-repeat;
-	/*background-position : 0px 0px;*/
-	background-position: top left;
+nav {
+  /*diplay: flex obligatoire pour réorganiser des blocs*/
+  display: flex;
+  /*on organise les blocs au centre*/
+  justify-content: space-around;
+  /*align-items: center;*/ }
 
-	/*when shrinking an elements, min_width correspond to the width untill which
-	the elements shrink as well, beyond this boundaries the elements 'refuse' to shrink and 
-	is cut*/
-	/*min-width: 800px;*/
-
-	/*browser calculate the margin*/
-	margin: auto;
-}
-
-nav
-{
-	/*diplay: flex obligatoire pour réorganiser des blocs*/
-	display: flex;
-
-	/*on organise les blocs au centre*/
-	justify-content: space-around;
-
-	/*align-items: center;*/
-}
-
-nav a
-{
-	/*we remove the natural underline of the links*/
-	text-decoration: none;
-
-	text-align: center;
-	padding: 10px;
-	width: 15%;
-}
+nav a {
+  /*we remove the natural underline of the links*/
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  width: 15%; }
 
 /*requete media*/
 /*media queries : propriétés appliquées lorsque l'écran devient inférieur à une vertaine taille*/
 /*si il s'agit d'un écran & qu'il dispose de moins de 1024px*/
-@media all and (max-width: 1024px)
-{
-	nav
-	{
-		display: flex;
+@media all and (max-width: 1024px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; }
 
-		flex-direction: column;
-
-		align-items: flex-start;
-	}
-
-	nav a
-	{
-		width:  clamp(100px, 25%, 400px);
-	}
-}
-
-
-
-
-
-.barre_menu
-{
-	/*font-size: x-large;*/
-	font-size: 20px;
-}
+  nav a {
+    width: clamp(100px, 25%, 400px); } }
+.barre_menu {
+  /*font-size: x-large;*/
+  font-size: 20px; }
 
 /*events when mouse on it*/
-.barre_menu:hover
-{
-	box-shadow: 1px 1px 20px black;
-	border-radius: 5px 5px 5px 5px;
-}
+.barre_menu:hover {
+  border-radius: 5px 5px 5px 5px; }
 
 /*cuando la pagina ya ha sida vista => este cambio occure*/
-.barre_menu:visited
-{
-	color:  rgb(20, 20, 20);
-}
+.barre_menu:visited {
+  color: #141414; }
 
 /*déclaration d'une police personnalisée décrite dans des fichiers locaux*/
-@font-face{
-	font-family:  'rubik';
-	src:  url(fonts/rubik/Rubik-Regular.ttf);
-}
+@font-face {
+  font-family: 'rubik';
+  src: url(fonts/rubik/Rubik-Regular.ttf); }
+h1, h2 {
+  /*title in Majuscule*/
+  text-transform: uppercase; }
 
-h1, h2
-{
-	/*title in Majuscule*/
-	text-transform: uppercase;
-}
+h1 {
+  text-align: center;
+  font-size: xx-large;
+  /*font-size: 2em;*/
+  font-weight: bold;
+  /*gras*/
+  background-color: #E6E6FA; }
 
-h1
-{
-	text-align: center ;
-	font-size: xx-large;             /*font-size: 2em;*/
-	font-weight : bold;             /*gras*/
-	background-color: #E6E6FA
-}
-
-h2
-{
-	font-size: large;               /*font-size: 1.3em;*/
-	font-weight : bold;
-	text-decoration: underline;    /*souligner h2*/
-}
+h2 {
+  font-size: large;
+  /*font-size: 1.3em;*/
+  font-weight: bold;
+  text-decoration: underline;
+  /*souligner h2*/ }
 
 /*paragraphes et listes*/
-p, ul
-{
-	color : black;
-	font-size: medium;
-	/*min-width: 1000000px;*/ /*sensé donner une largeur mini au dela de laquelle on ne peut reduire plus la fenetre*/
-	/*border : 1px solid black;*/
-
-	/*marge qui separe les balises des bordures top-right-bottom-left*/
-	margin: 10px 0px 10px 10px;
-
-	/*marge qui sépare le contenu des bords de sa balise*/
-	padding: 10px;
-}
-
+p, ul {
+  color: black;
+  font-size: medium;
+  /*min-width: 1000000px;*/
+  /*sensé donner une largeur mini au dela de laquelle on ne peut reduire plus la fenetre*/
+  /*border : 1px solid black;*/
+  /*marge qui separe les balises des bordures top-right-bottom-left*/
+  margin: 10px 0px 10px 10px;
+  /*marge qui sépare le contenu des bords de sa balise*/
+  padding: 10px; }
 
 /*l'image qui possède la source spécifiée*/
-img[alt = "up_arrow"]
-{
-	height: 50px;
+img[alt="up_arrow"] {
+  height: 50px;
+  width: auto;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px; }
 
-	width: auto;
+.contact_us_elmt {
+  color: green;
+  /*marge qui separe les balises des bordures top-right-bottom-left*/
+  margin: 0px;
+  margin-right: 10px;
+  margin-left: 10px;
+  /*marge qui sépare le contenu des bords de sa balise*/
+  padding: 5px;
+  /*retirer underline*/
+  text-decoration: none; }
 
-	position : fixed;
+.contact_us_elmt:nth-child(1) {
+  color: grey;
+  font-size: large; }
 
-	bottom: 10px;
-	left: 10px;
+.contact_us_elmt:nth-child(2) {
+  color: grey;
+  font-size: large; }
 
-	padding: 5px;
-}
+.contact_us {
+  /*blocs présentés en ligne*/
+  display: flex;
+  flex-direction: column; }
 
-
-.contact_us_elmt
-{
-	color :green;
-	/*marge qui separe les balises des bordures top-right-bottom-left*/
-	margin: 0px;
-	margin-right: 10px;
-	margin-left: 10px;
-
-	/*marge qui sépare le contenu des bords de sa balise*/
-	padding: 5px;
-
-	/*retirer underline*/
-	text-decoration: none;
-}
-
-.contact_us_elmt:nth-child(1)
-{
-	color :grey;
-	font-size: large;
-}
-
-.contact_us_elmt:nth-child(2)
-{
-	color : grey;
-	font-size: large;
-}
-
-.contact_us
-{
-	/*blocs présentés en ligne*/
-	display: flex;
-	flex-direction:column ;
-}
-
-footer
-{
-	background-color: #b0b7e0;
-	margin : 0px;
-}
-
+footer {
+  background-color: #b0b7e0;
+  margin: 0px; }
 
 /*selecteur universel, selectionne toutes les balises sans exception*/
 /*block used only for debugging*/
@@ -193,154 +146,74 @@ footer
 	border: 1px black solid; 
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /***** 📄 main_page.html *****/
-
 /*elements de class "Horaires*/
-.Horaires
-{
-	font-style: italic;
-}
+.Horaires {
+  font-style: italic; }
 
-.float_pic
-{
-	float : right;
-}
+.float_pic {
+  float: right; }
 
 /*retire tous le bloc aisni que tout son héritage pour des écrans de taille inférieure à la taille spécifiée*/
-@media all and (max-width: 1024px)
-{
-	.float_pic
-	{
-		display: none;
-	}
-}
+@media all and (max-width: 1024px) {
+  .float_pic {
+    display: none; } }
+aside img, aside p {
+  margin: 0px;
+  padding: 0; }
 
+aside {
+  /*color*/
+  background-color: #ddd;
+  /*hauteur du bloc*/
+  height: 3em;
+  width: 30em;
+  /*exterior margin*/
+  margin: 1em;
+  /*curve edges*/
+  border: 1px solid black;
+  border-radius: 0.5em;
+  /*we will organize the 2 sub_blocks in the aside block*/
+  /*ENABLE sub_blocks reorganization*/
+  display: flex;
+  /*organize blocks in row*/
+  flex-direction: row;
+  /*center sub_blocks horizontally*/
+  justify-content: center;
+  /*center the sub_blocks vertically*/
+  align-items: center;
+  /*in order to ajust precisely the position of the block we position them*/
+  /*we want to shift a bit the calender img to leave a lil space between the 2 blocks*/
+  /*we do it manually with the positionning*/
+  /*declare the bloc as positionned*/
+  /*ENABLE repositionning of child blocks*/
+  position: relative; }
 
-aside img,aside p
-{
-	margin: 0px;
-	padding: 0;
-}
+aside img {
+  /*redimensionnement de l'image*/
+  height: 2em;
+  width: auto;
+  /*le block img a déjà été positionné avec la fonction flex*/
+  /*maintenant on cherche à ajuster légèrement avec précision
+  la disposition du block image pour laisser un peur d'écart entre les
+  2 blocks*/
+  /*pour cela on positionne le block img depuis sa position relative*/
+  /*sa position relative a été établie par la flex-box*/
+  position: relative;
+  /*on decole le block image du block p*/
+  right: 1em; }
 
-aside
-{
-	/*color*/
-	background-color: #ddd;
-
-	/*hauteur du bloc*/
-	height: 3em;
-	width: 30em;
-
-	/*exterior margin*/
-	margin: 1em;
-
-	/*curve edges*/
-	border: 1px solid black;
-	border-radius: 0.5em;
-
-	/*we will organize the 2 sub_blocks in the aside block*/
-	/*ENABLE sub_blocks reorganization*/
-	display: flex;
-	/*organize blocks in row*/
-	flex-direction: row;
-	/*center sub_blocks horizontally*/
-	justify-content: center;
-	/*center the sub_blocks vertically*/
-	align-items: center;
-
-	/*in order to ajust precisely the position of the block we position them*/
-	/*we want to shift a bit the calender img to leave a lil space between the 2 blocks*/
-	/*we do it manually with the positionning*/
-	/*declare the bloc as positionned*/
-	/*ENABLE repositionning of child blocks*/
-	position : relative;
-}
-
-aside:hover
-{
-	box-shadow: 1px 1px 20px black;
-}
-
-aside img
-{
-	/*redimensionnement de l'image*/
-	height: 2em;
-	width: auto;
-
-	/*le block img a déjà été positionné avec la fonction flex*/
-	/*maintenant on cherche à ajuster légèrement avec précision
-	la disposition du block image pour laisser un peur d'écart entre les
-	2 blocks*/
-	/*pour cela on positionne le block img depuis sa position relative*/
-	/*sa position relative a été établie par la flex-box*/
-	position: relative;
-	/*on decole le block image du block p*/
-	right : 1em;
-}
-
-
-aside a
-{
-	/*positionnement du paragraphe dans le bloc parent (aside)*/
-/*	position: absolute;
-	top: 40%;
-	left: 15%;
-*/
-	/*text aligned horizontally in its current bloc (p)*/
-	text-align: center;
-
-	/*we remove the natural underline of the links*/
-	text-decoration: none;
-
-	color: black;
-}
+aside a {
+  /*positionnement du paragraphe dans le bloc parent (aside)*/
+  /*	position: absolute;
+  	top: 40%;
+  	left: 15%;
+  */
+  /*text aligned horizontally in its current bloc (p)*/
+  text-align: center;
+  /*we remove the natural underline of the links*/
+  text-decoration: none;
+  color: black; }
 
 /*astude pour centrer du texte vertically*/
 /*aside p
@@ -350,587 +223,309 @@ aside a
   	height: 100px;
   	line-height: 100px;
 }*/
-
-
-#banner
-{
-	margin-left: 0px;
-	margin-right: 0px;
-
-	/*the height of the chosen image*/
-	height: 600px;
-	border-radius: 5px;
-	background: url("pictures/photo1.jpg") no-repeat;
-
-	/*center the image*/
-	background-position: center;
-
-	/*stretch picture to make fit with the screen*/
-	background-size: cover;
-
-	/*by default static mode (in the flux)*/
-	/*selecting fixed/relative/absolute allows us to write on the block*/
-	/*lorsque on les positionne, les blocs enfants se placent par rapport au premier bloc
-	parent positioné.
-	D'ou la nécéssité de déclaré la bannière comme positionée en utilisant relative.*/
-	/*Enable positioning for child blocs*/
-	position: relative;
-}
+#banner {
+  margin-left: 0px;
+  margin-right: 0px;
+  /*the height of the chosen image*/
+  height: 600px;
+  border-radius: 5px;
+  background: url("pictures/photo1.jpg") no-repeat;
+  /*center the image*/
+  background-position: center;
+  /*stretch picture to make fit with the screen*/
+  background-size: cover;
+  /*by default static mode (in the flux)*/
+  /*selecting fixed/relative/absolute allows us to write on the block*/
+  /*lorsque on les positionne, les blocs enfants se placent par rapport au premier bloc
+  parent positioné.
+  D'ou la nécéssité de déclaré la bannière comme positionée en utilisant relative.*/
+  /*Enable positioning for child blocs*/
+  position: relative; }
 
 /*retire tous le bloc aisni que tout son héritage pour des écrans de taille inférieure à la taille spécifiée*/
-@media all and (max-width: 1024px)
-{
-	#banner
-	{
-		display: none;
-	}
-}
+@media all and (max-width: 1024px) {
+  #banner {
+    display: none; } }
+#banner #banner_description {
+  /*Enable reorganization*/
+  display: flex;
+  /*decription block height*/
+  height: 30px;
+  color: white;
+  /*positionned according to its container*/
+  /*posible because the parent bloc is positionned as well (relative)*/
+  position: absolute;
+  /*we chose the distance between the current block and the bottom of the container*/
+  bottom: 10px;
+  background-color: rgba(250, 250, 250, 0.5);
+  /*secondary axe is the vertical one, we center the contenant according to the y axe*/
+  align-items: center;
+  /*adding padding we broaden the block*/
+  /*The block as it is defined has no defined width and height*/
+  /*it is why we had to reduce the width predentage afterwards*/
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  /*The elements occupy 99.2% of the parent's width (whithout the padding)*/
+  /*With the padding it occups more*/
+  width: 99.2%; }
 
-#banner #banner_description
-{
-	/*Enable reorganization*/
-	display: flex;
+#banner #banner_description a {
+  /*positionning the button in the banner_description (parent container)*/
+  position: absolute;
+  right: 5px;
+  /*intern margin*/
+  padding: 5px;
+  /*remove natural underline of links*/
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: orange; }
 
-	/*decription block height*/
-	height: 30px;
-
-	color: white;
-
-	/*positionned according to its container*/
-	/*posible because the parent bloc is positionned as well (relative)*/
-	position: absolute;
-
-	/*we chose the distance between the current block and the bottom of the container*/
-	bottom: 10px;
-
-	background-color: rgba(250, 250, 250, 0.5);
-
-	/*secondary axe is the vertical one, we center the contenant according to the y axe*/
-	align-items: center;
-
-    /*adding padding we broaden the block*/
-    /*The block as it is defined has no defined width and height*/
-    /*it is why we had to reduce the width predentage afterwards*/
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-top: 7px;
-	padding-bottom: 7px;
-
-	/*The elements occupy 99.2% of the parent's width (whithout the padding)*/
-	/*With the padding it occups more*/
-	width: 99.2%;
-}
-
-#banner #banner_description a
-{
-	/*positionning the button in the banner_description (parent container)*/
-	position: absolute;
-	right: 5px;
-
-	/*intern margin*/
-	padding: 5px;
-
-	/*remove natural underline of links*/
-	text-decoration: none;
-	border-radius: 5px;
-
-	background-color: orange;
-}
-
-#banner #banner_description a:hover
-{
-	box-shadow: 1px 1px 2px black;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#banner #banner_description a:hover {
+  box-shadow: 1px 1px 2px black; }
 
 /***** 📄 form.html FORM *****/
+#nav_form {
+  justify-content: rleft; }
 
-#nav_form
-{
-	justify-content: left;
-}
+#nav_form img {
+  height: 2em;
+  width: auto;
+  padding: 0.2em; }
 
-#nav_form img
-{
-	height: 2em;
-	width: auto;
-	padding: 0.2em;
-}
+#nav_form img:hover {
+  /*border: 1px solid black;*/
+  border-radius: 0.3em; }
 
-#nav_form img:hover
-{
-	/*border: 1px solid black;*/
-	border-radius: 0.3em;
-	box-shadow: 1px 1px 20px black;
-}
-
-
-form
-{
-	/*ENABLE flex reorganization*/
-	display: flex;
-	/*elements presented in column*/
-	flex-direction: column;
-
-	width: auto;
-}
-
-form label
-{
-	/*leave space between the champ and the indicator*/
-	padding-right: 1em;
-}
-
-form p
-{
-	/*ENABLE flex reorganization*/
-	display: flex;
-	/*elements presented in row*/
-	flex-direction: row;
-}
+form {
+  /*ENABLE flex reorganization*/
+  display: flex;
+  /*elements presented in column*/
+  flex-direction: column;
+  width: auto;
+  /*fonctionnalité offerte par sass - imbriquer du css n'est pas possible*/ }
+  form label {
+    /*leave space between the champ and the indicator*/
+    padding-right: 1em; }
+  form p {
+    /*ENABLE flex reorganization*/
+    display: flex;
+    /*elements presented in row*/
+    flex-direction: row; }
 
 /*exception for the comment section, we want column presentation*/
-form p:nth-child(9)
-{
-	flex-direction: column;
-}
+form p:nth-child(9) {
+  flex-direction: column; }
 
+form input[type="submit"] {
+  font-size: 1.3em;
+  /*on décale le bouton de la position que lui affecte automatiquement flex box*/
+  position: relative;
+  left: 50%; }
 
-form input[type="submit"]
-{
-	font-size: 1.3em;
-
-	/*on décale le bouton de la position que lui affecte automatiquement flex box*/
-	position: relative;
-	left: 50%;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#form_footer {
+  /* we will build a 2*2 grid*/
+  /*social network child block*/ }
+  #form_footer .contact_us {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1em; }
+  #form_footer .contact_us div:nth-child(3) {
+    /*we use 2 rows for the socila network block*/
+    grid-row-start: 1;
+    grid-row-end: 3;
+    /* we want the social network block in the right side column*/
+    grid-column: 2;
+    /*define the div block containing the social network icons as a container*/
+    /*the div as an icon container*/
+    /*ENABLE flex*/
+    display: flex;
+    /*icons stored in row : x axis as the principal axis*/
+    flex-direction: row;
+    /*homogeneous repartition with respect to x*/
+    justify-content: space-around;
+    /*centered in y*/
+    align-items: center;
+    animation: drop 4s linear forwards; }
+    #form_footer .contact_us div:nth-child(3) img {
+      width: 3em;
+      height: 3em;
+      /*animation settings*/
+      /*the animation start slow - accelerate and end up slowly*/
+      /*animation-timing-function: ease*/
+      /*define the state of the element before the animation occurs.
+      With forwards before the animation, the element occups the stationay
+      position defined by the end of the animation*/
+      /*animation-fill-mode: forwards*/
+      /*select the animation declared/defined/created in the @keyframes my_name*/
+      /*animation-name: my_name*/
+      /*The time laps token by the page to run the animation after that the user has opened the page*/
+      /*calc to adapt this time for each elements. Each img elemnts has it's own --order variable*/
+      /*animation-delay: calc(1s + var(--order) * 0.8s)*/
+      animation: dropIn calc(1s + var(--order) * 0.8s) ease forwards; }
+@keyframes dropIn {
+  from {
+    transform: translateY(-500px); }
+  to {
+    transform: translateY(0); } }
 /***** 📄 page1.html VENTES *****/
-.bike_in_sell
-{
-	/*bordure pour séparer les articles en vente*/
-	border-bottom: 1px black groove;
+.bike_in_sell {
+  /*bordure pour séparer les articles en vente*/
+  border-bottom: 1px black groove;
+  /*width of the block container for each bike*/
+  width: 50%;
+  /*on centre le bloc sur la page*/
+  margin: auto; }
 
-	/*width of the block container for each bike*/
-	width: 50%;
-
-	/*on centre le bloc sur la page*/
-	margin : auto;
-}
-
-.bike_in_sell img
-{
-	/*we fix the width of the img*/
-	/*clamp(min, valeur à tester, max) => adapte la taille de l'image à la taille de la fenêtre*/
-	width: clamp(100px, 75%, 600px);
-	
-	/*apply the heightthat allows to keep the same ratio of the img*/
-	height: auto;
-}
+.bike_in_sell img {
+  /*we fix the width of the img*/
+  /*clamp(min, valeur à tester, max) => adapte la taille de l'image à la taille de la fenêtre*/
+  width: clamp(100px, 75%, 600px);
+  /*apply the heightthat allows to keep the same ratio of the img*/
+  height: auto; }
 
 /*events occuring when mouse is on the element*/
-.bike_in_sell:hover
-{
-	/*bordure + mise en relief avec ombre*/
-	box-shadow: 1px 1px 20px black;
-	border-radius: 10px 50px;
-}
+.bike_in_sell:hover {
+  /*bordure + mise en relief avec ombre*/
+  border-radius: 10px 50px; }
 
-#bikes_list
-{
-	text-align: center;
-	list-style-type: none;
-
-	/*affichage en colomne (par défaut)*/
-	display: flex;
-	flex-direction: column;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#bikes_list {
+  text-align: center;
+  list-style-type: none;
+  /*affichage en colomne (par défaut)*/
+  display: flex;
+  flex-direction: column; }
 
 /***** 📄 page2.html PARCOURS VELO *****/
-
-#container_parcours_velo
-{
-	/*enable blocks reorganization*/
-	display: flex;
-
-	/*default orientation, but to be sure*/
-	flex-direction: column;
-
-	/*min-width: 800px;*/
-}
-
+#container_parcours_velo {
+  /*enable blocks reorganization*/
+  display: flex;
+  /*default orientation, but to be sure*/
+  flex-direction: column;
+  /*min-width: 800px;*/ }
 
 /*les images situées dans la balise #Alpes_road*/
-#container_parcours_velo img
-{
+#container_parcours_velo img {
+  /*we fix the width of the img*/
+  /*clamp(min, valeur à tester, max) => adapte la taille de l'image à la taille de la fenêtre*/
+  width: clamp(300px, 40%, 1000px);
+  /*apply the heightthat allows to keep the same ratio of the img*/
+  height: auto; }
 
-	/*we fix the width of the img*/
-	/*clamp(min, valeur à tester, max) => adapte la taille de l'image à la taille de la fenêtre*/
-	width: clamp(300px, 40%, 1000px);
-	
-	/*apply the heightthat allows to keep the same ratio of the img*/
-	height: auto;
-}
-
-
-#container_parcours_velo .sub_container
-{
-	/*enable blocks reorganization*/
-	display: flex;
-
-	/*blocks orientation*/
-	flex-direction: row;
-
-	/*We place elements in left side*/
-	justify-content: center;
-
-	/*on aère*/
-	padding: 50px;
-
-	/*We bring the elements closer to the middle*/
-	/*🚧 bricolage pas terrible - à modifier avec position : relative + right🚧*/
-	/*padding-left: 200px;*/
-
-
-	/*elements whithin the sub_container are strored in row*/
-	/*The secondary axe is then column*/
-	/*elements within sub_container are centered in column axis*/
-	align-items: center;
-}
-
+#container_parcours_velo .sub_container {
+  /*enable blocks reorganization*/
+  display: flex;
+  /*blocks orientation*/
+  flex-direction: row;
+  /*We place elements in left side*/
+  justify-content: center;
+  /*on aère*/
+  padding: 50px;
+  /*We bring the elements closer to the middle*/
+  /*🚧 bricolage pas terrible - à modifier avec position : relative + right🚧*/
+  /*padding-left: 200px;*/
+  /*elements whithin the sub_container are strored in row*/
+  /*The secondary axe is then column*/
+  /*elements within sub_container are centered in column axis*/
+  align-items: center; }
 
 /*le 2eme element enfant "sub_container" de la liste "container_parcours_velo"*/
-#container_parcours_velo .sub_container:nth-child(2)
-{
-	/*inverse elements order*/
-	/*inverse aussi le flex-start*/
-	flex-direction: row-reverse;
-}
+#container_parcours_velo .sub_container:nth-child(2) {
+  /*inverse elements order*/
+  /*inverse aussi le flex-start*/
+  flex-direction: row-reverse; }
 
 /*** SMALL SCREEN DEVICES 💻 ***/
+@media all and (max-width: 1048px) {
+  #container_parcours_velo .sub_container {
+    flex-direction: column;
+    padding: 10px; }
 
-@media all and (max-width: 1048px)
-{
-		#container_parcours_velo .sub_container
-	{
-		flex-direction: column;
-		padding: 10px;
-	}
-
-	#container_parcours_velo .sub_container:nth-child(2)
-	{
-		flex-direction: column;
-		padding: 10px;
-	}
-} 
-
-
+  #container_parcours_velo .sub_container:nth-child(2) {
+    flex-direction: column;
+    padding: 10px; } }
 /*elements of sub_container which means img and article of sub_container*/
-#container_parcours_velo .sub_container img,article
-{
-	margin : 30px;
-}
+#container_parcours_velo .sub_container img, article {
+  margin: 30px; }
 
-#container_parcours_velo .sub_container article
-{
-	/*width of the article block*/
-	width: clamp(300px, 40%, 1000px);
-
-	/*height of the article block*/
-	height: 350px;
-
-	/*aerate the texte*/
-	padding: 5px;
-
-	/*determine the reaction of the navigator when the text is too big for the article block*/
-	/*often equivalent to scroll option*/
-	overflow: auto;
-
-	/*put borders to the article blocks*/
-	border: 1px black solid;
-
-	/*curve the borders edges*/
-	border-radius: 5px;
-}
+#container_parcours_velo .sub_container article {
+  /*width of the article block*/
+  width: clamp(300px, 40%, 1000px);
+  /*height of the article block*/
+  height: 350px;
+  /*aerate the texte*/
+  padding: 5px;
+  /*determine the reaction of the navigator when the text is too big for the article block*/
+  /*often equivalent to scroll option*/
+  overflow: auto;
+  /*put borders to the article blocks*/
+  border: 1px black solid;
+  /*curve the borders edges*/
+  border-radius: 5px; }
 
 /*the tab title box*/
-caption
-{
-	padding: 1em;
-	font-weight: bold ;
-}
-
+caption {
+  padding: 1em;
+  font-weight: bold; }
 
 /*** VIDEO ***/
-#video_container
-{
-	/*ENABLE reorganization of block*/
-	display: flex;
-	/*organized in column*/
-	flex-direction: column;
-	/*centrage video ⚠️ ici l'axe principal est y et l'axe secondaire x puisque on est en disposition colomne*/
-	/*on veut aligner selon x donc selon l'axe secondaire, on utilise alors align-items et non pas justify-contents */
-	align-items: center;
+#video_container {
+  /*ENABLE reorganization of block*/
+  display: flex;
+  /*organized in column*/
+  flex-direction: column;
+  /*centrage video ⚠️ ici l'axe principal est y et l'axe secondaire x puisque on est en disposition colomne*/
+  /*on veut aligner selon x donc selon l'axe secondaire, on utilise alors align-items et non pas justify-contents */
+  align-items: center; }
 
-
-}
-
-#video_container video
-{
-	padding: 1em;
-	width: clamp(300px, 50%, 1000px);
-}
-
-
+/*apply to videos direct children of #video_container */
+/*dosn't apply to grandchildre*/
+#video_container > video {
+  padding: 1em;
+  width: clamp(300px, 50%, 1000px); }
 
 /*cell of each tab line*/
-td, th
-{
-	text-align: center;
-
-	padding: 1em;
-
-	background: #ddd;
-}
+td, th {
+  text-align: center;
+  padding: 1em;
+  background: #ddd; }
 
 /*each line of the tab*/
-tr
-{
-	
-	/*visible delimitation for the tab cells*/
-	border-bottom : 2px dotted grey;
-}
+tr {
+  /*visible delimitation for the tab cells*/
+  border-bottom: 2px dotted grey; }
 
 /*remove the border delimitation below the last line*/
-tbody tr:last-child
-{
-	border-bottom: none;
-}
-
+tbody tr:last-child {
+  border-bottom: none; }
 
 /*curve the edge of the table by selecting the extremity cells*/
-
 /*first line, first column of the tab comme table[0][0]*/
 /*en considérent que table[0][0] is a table[0] child, a tab child itself*/
-table tr:first-child th:first-child
-{
-	border-top-left-radius: 1em;
-}
+table tr:first-child th:first-child {
+  border-top-left-radius: 1em; }
 
-table tr:first-child th:last-child
-{
-	border-top-right-radius: 1em;
-}
-table tr:last-child td:first-child
-{
-	border-bottom-left-radius:1em ;
-}
+table tr:first-child th:last-child {
+  border-top-right-radius: 1em; }
 
-table tr:last-child td:last-child
-{
-	border-bottom-right-radius: 1em;
-}
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 1em; }
 
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 1em; }
 
+table {
+  /*organizing the individual border of each cell to give the look of a tab*/
+  border-collapse: collapse;
+  /*⚠️ used to center the content*/
+  margin: auto;
+  margin-top: 1em;
+  /*tab disposition*/
+  table-layout: auto;
+  width: 30%; }
 
-
-table
-{
-	/*organizing the individual border of each cell to give the look of a tab*/
-	border-collapse: collapse;
-
-
-	/*⚠️ used to center the content*/
-	margin : auto;
-	margin-top: 1em;
-
-	/*tab disposition*/
-	table-layout: auto;
-	width: 30%;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***** 📕 DOCUMENTATION 
+/************************** 📕 DOCUMENTATION 
 
 GENERALITES CSS
 	Affecte/concerne tous les éléments d'une même classe
@@ -985,5 +580,19 @@ MEDIA QUERIES 💻 🖥 📱
 
 
 
+SPECIFICITY
+
+	Lorsque conflits pour les caractéristiques d'une balise, plusieurs 
+	indications applicable à un même élément.
+	Il y a un ordre de priorité qui définit quelle instruction css sera respectée
+
+	1.inline (spécifié au sein du code html il me semble)
+	2.id
+	3.class
+	4.type
+
+	memo : plus elle est précise sur l'éléments, plus l'instruction sera prioritaire
+
 *****/
 
+/*# sourceMappingURL=style.css.map */
