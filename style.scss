@@ -155,8 +155,8 @@ img[alt = "up_arrow"]
 
 	width: auto;
 
+	/*positionnement par rapport à la page (pas référencé à un bloc)*/
 	position : fixed;
-
 	bottom: 10px;
 	left: 10px;
 
@@ -562,6 +562,8 @@ form
 form p:nth-child(9)
 {
 	flex-direction: column;
+
+	width: 50%;
 }
 
 
@@ -623,8 +625,11 @@ form input[type="submit"]
 			animation: dropIn calc(1s + var(--order) * 0.8s) ease forwards;
 
 			@keyframes dropIn {
-				from {transform: translateY(-500px);}
+				from {transform: translateY(-40em);}
 				to { transform: translateY(0);}
+
+				0% {opacity: 0;}
+				100% {opacity: 1;}
 			}
 		}
 
@@ -726,6 +731,9 @@ form input[type="submit"]
 	
 	/*apply the heightthat allows to keep the same ratio of the img*/
 	height: auto;
+
+	/*images less sharp*/
+	border-radius: 0.5em;
 }
 
 /*events occuring when mouse is on the element*/
@@ -733,7 +741,7 @@ form input[type="submit"]
 {
 	/*bordure + mise en relief avec ombre*/
 	@extend %BOX_SHADOW_BUTTON;
-	border-radius: 10px 50px;
+	border-radius: 1em;
 }
 
 #bikes_list
@@ -744,6 +752,34 @@ form input[type="submit"]
 	/*affichage en colomne (par défaut)*/
 	display: flex;
 	flex-direction: column;
+
+	.bike_in_sell
+	{
+		/* duration of each/independant animation */
+		animation-duration: 1s;
+
+		/*nom de l'animation à utiliser*/
+		animation-name: shiftIn;
+
+		/*position de l'element avant l'animation (backward = hors champ dans notre cas puisque animation demarre hors champ)*/
+		animation-fill-mode: backwards;
+
+		/*lapse de temps entre ouverture de la page et demarrage de animation*/
+		animation-delay: calc(0.1s + calc(var(--order)) * 0.4s);
+
+		/* dynamique de l'animation : lent-vite-lent */
+		animation-timing-function: ease;
+
+		/*definition/declaration of the "shiftin" animation*/
+		@keyframes shiftIn {
+			from {transform: translateX(150%);}
+			to { transform: translateX(0);}
+
+			/*animation start opaque and become linearly non opaque with the time*/
+			0% {opacity: 0;}
+			100% {opacity: 1;}
+		}
+	}
 }
 
 
